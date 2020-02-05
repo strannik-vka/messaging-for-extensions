@@ -7,7 +7,7 @@
 ***callback*** - (не обязательно) функция обратного вызова<br>
 ***tab_id*** - id вкладки если передаем в content, иначе не нужно
 ```js
-message.send(class_name, function_name, data, callback, tab_id); // отправка со всеми параметрамми
+message.send(class_name, function_name, data, callback, tab_id); // отправка со всеми параметрами
 message.send(class_name, function_name, callback, tab_id); // отправка без данных
 message.send(class_name, function_name, tab_id); // отправка без данных и обратного вызова 
 message.send(class_name, function_name); // просто вызов функции находящаяся в background или popup
