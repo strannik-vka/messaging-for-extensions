@@ -7,7 +7,10 @@
 ***callback*** - (не обязательно) функция обратного вызова<br>
 ***tab_id*** - id вкладки если передаем в content, иначе не нужно
 ```js
-message.send(class_name, function_name, data, callback, tab_id);
+message.send(class_name, function_name, data, callback, tab_id); // отправка со всеми параметрамми
+message.send(class_name, function_name, callback, tab_id); // отправка без данные
+message.send(class_name, function_name, tab_id); // отправка без данные и обратного вызова 
+message.send(class_name, function_name); // просто вызов функции находящаяся в background или popup
 ```
 ## пример
 Допустим в manifest "content_scripts" подключен ct.js с содержимым:
