@@ -41,6 +41,11 @@ var message = {
 			data = false;
 		}
 		
+		if(typeof callback !== 'function' && callback){
+			tab_id = callback;
+			callback = false;
+		}
+		
 		var send_data = {obj_name: obj_name, method: method, data: data, tab_id: tab_id, callback: callback};
 		
 		if(tab_id){
