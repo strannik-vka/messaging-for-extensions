@@ -10,7 +10,7 @@
 message.send(class_name, function_name, data, callback, tab_id);
 ```
 ## пример
-Допустим в "content_scripts" подключен content.js с содержимым:
+Допустим в manifest "content_scripts" подключен ct.js с содержимым:
 ```js
 var content_test = {
   function_test: function(obj, callback){
@@ -20,7 +20,7 @@ var content_test = {
   }
 }
 ```
-Допустим в "background" подключен bg.js с содержимым:
+Допустим в manifest "background" подключен bg.js с содержимым:
 ```js
 var bg_test = {
   function_test: function(obj, callback){
@@ -29,6 +29,22 @@ var bg_test = {
     if(callback) callback();
   }
 }
+```
+В "content_scripts" и "background" подключаем message.js, в нашем примере будет так:
+```js
+"background": {
+  "scripts": [
+    "bg.js",
+    "message.js"
+  ]
+},
+"content_scripts":[{
+  "matches": ["<all_urls>"],
+  "js": [
+    "ct.js",
+    "message.js"
+  ]
+}]
 ```
 Из "background" отправляем в "content"
 ```js
