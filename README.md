@@ -1,16 +1,15 @@
 # messaging-for-extensions
 Обмен сообщениями для расширения между background, popup, content
 
-***class_name*** - название переменной содержащая функцию<br>
-***function_name*** - название функции в переменной, которую надо запустить<br>
+***function*** - функции, которую надо запустить<br>
 ***data*** - (не обязательно) данные для отправки, это может быть строка или объект<br>
 ***callback*** - (не обязательно) функция обратного вызова<br>
 ***tab_id*** - id вкладки если передаем в content, иначе не нужно
 ```js
-message.send(class_name, function_name, data, callback, tab_id); // отправка со всеми параметрами
-message.send(class_name, function_name, callback, tab_id); // отправка без данных
-message.send(class_name, function_name, tab_id); // отправка без данных и обратного вызова 
-message.send(class_name, function_name); // просто вызов функции находящаяся в background или popup
+message.send(function, data, callback, tab_id); // отправка со всеми параметрами
+message.send(function, callback, tab_id); // отправка без данных
+message.send(function, tab_id); // отправка без данных и обратного вызова 
+message.send(function); // просто вызов функции находящаяся в background или popup
 ```
 ## пример
 Допустим в manifest "content_scripts" подключен ct.js с содержимым:
@@ -51,16 +50,16 @@ var bg_test = {
 ```
 Из "background" отправляем в "content"
 ```js
-message.send('content_test', 'function_test', 'Привет content!', function(response){
-  consile.log('content вернул результат:');
-  console.log(obj);
+message.send('content_test.function_test', 'Привет content!', function(response){
+  console.log('content вернул результат:');
+  console.log(response);
 }, tab_id);
 ```
 Из "content" отправляем в "background"
 ```js
-message.send('bg_test', 'function_test', 'Привет background!', function(response){
-  consile.log('background вернул результат:');
-  console.log(obj);
+message.send('bg_test.function_test', 'Привет background!', function(response){
+  console.log('background вернул результат:');
+  console.log(response);
 });
 ```
 С "popup" всё аналогично!
