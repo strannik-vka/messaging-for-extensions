@@ -1,15 +1,15 @@
 # messaging-for-extensions
 Обмен сообщениями для расширения между background, popup, content
 
-***function*** - функции, которую надо запустить<br>
+***function*** - функция, которую надо запустить<br>
 ***data*** - (не обязательно) данные для отправки, это может быть строка или объект<br>
 ***callback*** - (не обязательно) функция обратного вызова<br>
 ***tab_id*** - id вкладки если передаем в content, иначе не нужно
 ```js
-message.send(function, data, callback, tab_id); // отправка со всеми параметрами
-message.send(function, callback, tab_id); // отправка без данных
-message.send(function, tab_id); // отправка без данных и обратного вызова 
-message.send(function); // просто вызов функции находящаяся в background или popup
+message.send('function', data, callback, tab_id); // отправка со всеми параметрами
+message.send('function', callback, tab_id); // отправка без данных
+message.send('function', tab_id); // отправка без данных и обратного вызова 
+message.send('function'); // просто вызов функции находящаяся в background или popup
 ```
 ## пример
 Допустим в manifest "content_scripts" подключен ct.js с содержимым:
