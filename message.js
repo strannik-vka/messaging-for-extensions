@@ -47,7 +47,7 @@ var message = {
 			});
 			
 			setTimeout(function(){
-				message.send('message', 'contentActive');
+				message.send('message.contentActive');
 			}, 1000);
 		}
 	},
