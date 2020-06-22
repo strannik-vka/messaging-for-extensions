@@ -62,4 +62,4 @@ message.send('bg_test.function_test', 'Привет background!', function(respo
   console.log(response);
 });
 ```
-С "popup" всё аналогично!
+С "popup" всё аналогично из Popup можно отправить и получить ответ, но в Popup отправить нельзя.
