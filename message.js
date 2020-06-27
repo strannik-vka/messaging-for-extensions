@@ -33,27 +33,12 @@ var message = {
 	// Прием сообщений для Content, Popup и Background
 	onMessage: function(){
 		var startFunction = function(method, data, callback){
-			var old;
-
-			if(method.indexOf('.') > -1){
-				var method_arr = method.split('.');
-				$.each(method_arr, function(i, item){
-					if(old){
-						old = old[item];
-					} else {
-						old = window[item];
-					}
-				});
-			} else {
-				old = method;
-			}
-
 			if(data){
-				old.call(1, data, function(response){
+				window[method](data, function(response){
 					callback(response);
 				});
 			} else {
-				old.call(1, function(response){
+				window[method](function(response){
 					callback(response);
 				});
 			}
