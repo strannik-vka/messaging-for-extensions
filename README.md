@@ -9,7 +9,7 @@
 message.send('function', data, callback, tab_id); // отправка со всеми параметрами
 message.send('function', callback, tab_id); // отправка без данных
 message.send('function', tab_id); // отправка без данных и обратного вызова 
-message.send('function'); // просто вызов функции находящаяся
+message.send('function'); // просто вызов функции
 ```
 ## пример
 Допустим в manifest "content_scripts" подключен ct.js с содержимым:
