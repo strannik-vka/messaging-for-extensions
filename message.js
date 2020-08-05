@@ -37,7 +37,7 @@ var message = {
 
 			if(method.indexOf('.') > -1){
 				var method_arr = method.split('.');
-				$.each(method_arr, function(i, item){
+				method_arr.forEach(function(item, i){
 					if(old){
 						if(method_arr.length-1 == i){
 							method = item;
